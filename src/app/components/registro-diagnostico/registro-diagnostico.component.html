@@ -1,0 +1,63 @@
+<form [formGroup]="formularioDiagnostico">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group has-float-label">
+                <label for="inputNombre">Nombre</label>
+                <input formControlName="nombre" type="text" id="inputNombre" class="form-control form-control-sm"
+                    autofocus>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group has-float-label">
+                <label for="inputDNI">DNI</label>
+                <input formControlName="dni" type="number" id="inputDNI" class="form-control form-control-sm">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row py-3">
+        <div class="col-md-4">
+            <div class="form-group has-float-label">
+                <label for="inputMareo">Mareo</label>
+                <select formControlName="mareo" class="form-control form-control-sm" id="inputMareo">
+                    <option>No</option>
+                    <option>Si</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group has-float-label">
+                <label for="inputHipert">Hipertensión</label>
+                <select formControlName="hipertension" class="form-control form-control-sm" id="inputHipert">
+                    <option>No</option>
+                    <option>Si</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group has-float-label">
+                <label for="inputDNI">Edad</label>
+                <input formControlName="edad" type="number" id="inputDNI" class="form-control form-control-sm">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group has-float-label">
+                <label for="inputFiebre">Fiebre</label>
+                <input formControlName="fiebre" type="number" id="inputFiebre" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group has-float-label">
+                <label for="inputPresion">Presión</label>
+                <input formControlName="presion" type="number" id="inputPresion" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button 
+            (click)="mostrar()" [disabled]="formularioDiagnostico.invalid"
+            type="button" class="btn btn-primary btn-sm btn-block">Evaluar</button>
+        </div>
+    </div>
+</form>

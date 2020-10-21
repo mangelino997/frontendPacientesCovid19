@@ -1,0 +1,35 @@
+<form [formGroup]="formularioFiltro">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group has-float-label">
+                <label for="inputNombre">Nombre</label>
+                <input formControlName="nombre" type="text" id="inputNombre" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group has-float-label">
+                <label for="inputDNI">DNI</label>
+                <input formControlName="dni" type="number" id="inputDNI" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group has-float-label">
+                <label for="inputEstado">Estado</label>
+                <select formControlName="estado" class="form-control form-control-sm" id="inputEstado">
+                    <option value="Todos">Todos</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Naranja">Naranja</option>
+                    <option value="Amarillo">Amarillo</option>
+                    <option value="Verde">Verde</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button 
+            (click)="mostrar()"
+            type="button" class="btn btn-primary btn-sm btn-block">
+                Filtrar
+            </button>
+        </div>
+    </div>
+</form>
