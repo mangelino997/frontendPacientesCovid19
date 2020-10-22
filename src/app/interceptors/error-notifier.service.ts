@@ -5,16 +5,15 @@ import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ErrorNotifierService implements HttpInterceptor{
+export class ErrorNotifierService implements HttpInterceptor {
 
   constructor(private toasterService: ToastrService) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): any {
     return next.handle(request).pipe(
       tap(
-        event => { 
+        event => {
         },
         error => {
-          console.log("entraa");
           if (error instanceof HttpErrorResponse) {
             this.toasterService.error(error.message, error.name, { closeButton: true });
           }

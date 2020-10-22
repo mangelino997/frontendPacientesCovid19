@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <div class="form-group has-float-label">
                 <label for="inputDNI">DNI</label>
-                <input formControlName="dni" type="number" id="inputDNI" class="form-control form-control-sm">
+                <input formControlName="dni" type="text" id="inputDNI" class="form-control form-control-sm">
             </div>
         </div>
         <div class="col-md-2">
@@ -24,13 +24,8 @@
             </div>
         </div>
         <div class="col">
-            <button (click)="mostrar()" type="button" class="btn btn-primary btn-sm btn-block">
+            <button (click)="listarPorFiltro()" type="button" class="btn btn-primary btn-sm btn-block">
                 Filtrar
-            </button>
-        </div>
-        <div class="col">
-            <button (click)="mostrar()" type="button" class="btn btn-secondary btn-sm btn-block">
-                Reset
             </button>
         </div>
     </div>

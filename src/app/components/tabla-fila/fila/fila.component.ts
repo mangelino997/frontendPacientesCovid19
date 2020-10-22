@@ -8,16 +8,14 @@ import { PacienteService } from '../../../services/paciente.service';
   styleUrls: ['./fila.component.css']
 })
 export class FilaComponent implements OnInit {
-  
+
   @Input() backgroundColor: string;
-  @Input() fila: pacienteEvaluado[]=[];
+  @Input() fila: pacienteEvaluado[] = [];
 
-  constructor(private pacienteService: PacienteService) {}
+  constructor(private pacienteService: PacienteService) { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {}
-
-  public actualizarEstado(paciente: pacienteEvaluado): void{
-    this.pacienteService.actualizarEstado(paciente)
+  public actualizarEstado(paciente: pacienteEvaluado): void {
+    this.pacienteService.actualizarEstado(paciente);
   }
-
 }

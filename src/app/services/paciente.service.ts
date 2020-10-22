@@ -1,9 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { paciente } from '../models/paciente';
 import { pacienteEvaluado } from '../models/pacienteEvaluado';
+import { filtro } from '../models/filtro';
 
 @Injectable({
   providedIn: 'root'
@@ -18,17 +19,29 @@ export class PacienteService {
     this.obtenerPacientes();
   }
 
+  //Setea el nuevo estado del observale y lo propaga
   public set(newSate) {
     this.filas = newSate;
     this.subject$.next(this.filas);
   }
 
+  //Observable al cual nos subscribimos 
   public select$(): Observable<any> {
     return this.subject$.asObservable();
   }
 
+  //Obtiene las listas completas de pacientes
   public obtenerPacientes(): any {
     this.http.get(this.URL + '/pacientes').subscribe(
+      res => {
+        this.set(res);
+      }
+    );
+  }
+
+  //Filtra las tablas
+  public obtenerPacientesPorFiltro(filtro: filtro): any {
+    this.http.post(this.URL + '/pacientes/listarPorFiltros', filtro).subscribe(
       res => {
         this.set(res);
       }
@@ -45,6 +58,7 @@ export class PacienteService {
     )
   }
 
+  //Cambia el estado a Atendido
   public actualizarEstado(paciente: pacienteEvaluado) {
     return this.http.get(this.URL + '/pacientes/' + paciente.id + '/status')
       .subscribe(

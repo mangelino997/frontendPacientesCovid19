@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">DNI</th>
+                <th scope="col">Dni</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Color</th>
                 <th scope="col">Fecha</th>
@@ -19,10 +19,9 @@
                 <td><small>{{paciente.color.color}}</small></td>
                 <td><small>{{paciente.date}}</small></td>
                 <td><small>{{paciente.score}}</small></td>
-                <td >
-                    <button *ngIf="paciente.status === 'Siendo atendido'"
-                    (click)="actualizarEstado(paciente)"
-                    class="btn btn-sm btn-hover">
+                <td>
+                    <button *ngIf="paciente.status === 'Siendo atendido'" (click)="actualizarEstado(paciente)"
+                        class="btn btn-sm btn-hover">
                         Atendido
                     </button>
                 </td>
