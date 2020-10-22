@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { paciente } from '../models/paciente';
+import { pacienteEvaluado } from '../models/pacienteEvaluado';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class PacienteService {
 
   public obtenerPacientes(): any {
     this.http.get(this.URL + '/pacientes').subscribe(
-      res=>{
+      res => {
         this.set(res);
       }
     );
@@ -38,14 +39,20 @@ export class PacienteService {
     return this.http.post(this.URL + '/pacientes', nuevoPaciente).subscribe(
       res => {
         this.toasterService.success("Paciente evaluado con éxito", '', { closeButton: true });
-        // para que refleje el cambio mediante el subject
-        this.obtenerPacientes(); 
+        // refleja el cambio con el subject
+        this.obtenerPacientes();
       },
     )
   }
 
-  public cambiarEstado(paciente: any) {
-    return this.http.put(this.URL + '/pacientes/'+ paciente.id + '/status', paciente);
+  public actualizarEstado(paciente: pacienteEvaluado) {
+    return this.http.get(this.URL + '/pacientes/' + paciente.id + '/status')
+      .subscribe(
+        (res: pacienteEvaluado) => {
+          this.toasterService.success("Paciente " + res.name + " atendido.", '', { closeButton: true });
+          this.obtenerPacientes();
+        }
+      );
   }
 
 }

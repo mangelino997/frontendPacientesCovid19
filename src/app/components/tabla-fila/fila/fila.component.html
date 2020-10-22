@@ -19,8 +19,10 @@
                 <td><small>{{paciente.color.color}}</small></td>
                 <td><small>{{paciente.date}}</small></td>
                 <td><small>{{paciente.score}}</small></td>
-                <td *ngIf="paciente.status === 'Siendo atendido'">
-                    <button class="btn btn-sm btn-hover">
+                <td >
+                    <button *ngIf="paciente.status === 'Siendo atendido'"
+                    (click)="actualizarEstado(paciente)"
+                    class="btn btn-sm btn-hover">
                         Atendido
                     </button>
                 </td>

@@ -1,0 +1,6 @@
+body::-webkit-scrollbar{
+    width: 0.5rem !important;
+}
+body::-webkit-scrollbar-thumb{
+    border-radius: 5px!important;
+}
