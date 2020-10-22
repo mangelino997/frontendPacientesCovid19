@@ -1,0 +1,10 @@
+
+.table-responsive{
+  overflow-y: auto;
+  height:250px !important;
+}
+.btn-hover:hover {
+  border-radius: 50px;
+  box-shadow:  1px 1px 2px #212121, 
+             -1px -1px 2px #7b7b7b;
+}

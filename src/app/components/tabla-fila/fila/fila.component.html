@@ -1,0 +1,30 @@
+<div class="table-responsive">
+    <table class="table table-bordered" [ngStyle]="{'background-color': backgroundColor}">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Color</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Puntaje</th>
+                <th scope="col">-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let paciente of fila">
+                <td><small>{{paciente.name}}</small></td>
+                <td><small>{{paciente.dni}}</small></td>
+                <td><small>{{paciente.status}}</small></td>
+                <td><small>{{paciente.color.color}}</small></td>
+                <td><small>{{paciente.date}}</small></td>
+                <td><small>{{paciente.score}}</small></td>
+                <td *ngIf="paciente.status === 'Siendo atendido'">
+                    <button class="btn btn-sm btn-hover">
+                        Atendido
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
