@@ -22,7 +22,8 @@ export class RegistroDiagnosticoComponent implements OnInit {
       dni: new FormControl(null, [
         Validators.required,
         Validators.minLength(8),
-        Validators.maxLength(8)]),
+        Validators.maxLength(8),
+        Validators.pattern(/^[0-9]\d*$/)]),
       mareo: new FormControl('No'),
       hipertension: new FormControl('No'),
       edad: new FormControl(null, Validators.required),
@@ -31,14 +32,9 @@ export class RegistroDiagnosticoComponent implements OnInit {
     })
   }
 
-  //
+  //Evaluar paciente 
   public evaluarPaciente() {
     this.pacienteService.agregarPaciente(this.formularioDiagnostico.value);
     this.formularioDiagnostico.reset();
   }
-
-  public agregarPaciente() {
-    this.pacienteService.agregarPaciente(this.formularioDiagnostico.value);
-  }
-
 }

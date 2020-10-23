@@ -20,7 +20,8 @@
                 <td><small>{{paciente.date}}</small></td>
                 <td><small>{{paciente.score}}</small></td>
                 <td>
-                    <button *ngIf="paciente.status === 'Siendo atendido'" (click)="actualizarEstado(paciente)"
+                    <button 
+                    *ngIf="paciente.status.toLowerCase().trim() === 'siendo atendido'" (click)="actualizarEstado(paciente)"
                         class="btn btn-sm btn-hover">
                         Atendido
                     </button>
